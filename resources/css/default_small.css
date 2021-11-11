@@ -1,0 +1,21 @@
+/* @media (min-width: 640px) {}
+@media (min-width: 768px) {}
+@media (min-width: 1024px) {}
+@media (min-width: 1280px) {}
+*/
+@media (max-width: 640px) {
+  .forgot-password-button {
+    
+  }
+  .register-button {
+  }
+}
+@media (max-width: 768px) {
+  /* ----------- LOGIN --------- */
+
+  .card-login {
+    width: auto;
+  }
+}
+@media (min-width: 1024px) {
+}

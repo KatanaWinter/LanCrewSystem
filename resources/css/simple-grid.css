@@ -1,0 +1,326 @@
+/**
+*** SIMPLE GRID
+*** (C) ZACH COLE 2016
+**/
+
+/* @import url(https://fonts.googleapis.com/css?family=Lato:400,300,300italic,400italic,700,700italic); */
+
+/* UNIVERSAL */
+
+html,
+body {
+  /* height: 100%; */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  left: 0;
+  top: 0;
+  font-size: 100%;
+}
+
+/* ROOT FONT STYLES */
+
+* {
+  /* font-family: 'Lato', Helvetica, sans-serif; */
+  /* color: #333447; */
+  line-height: 1.5;
+}
+
+/* TYPOGRAPHY */
+
+h1 {
+  font-size: 2.5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  font-size: 1.375rem;
+}
+
+h4 {
+  font-size: 1.125rem;
+}
+
+h5 {
+  font-size: 1rem;
+}
+
+h6 {
+  font-size: 0.875rem;
+}
+
+p {
+  font-size: 1.125rem;
+  font-weight: 200;
+  line-height: 1.8;
+}
+
+.font-light {
+  font-weight: 300;
+}
+
+.font-regular {
+  font-weight: 400;
+}
+
+.font-heavy {
+  font-weight: 700;
+}
+
+/* POSITIONING */
+
+.left {
+  text-align: left;
+}
+
+.right {
+  text-align: right;
+}
+
+.center {
+  text-align: center;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+.justify {
+  text-align: justify;
+}
+
+.justify-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.justify-space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.justify-right {
+  display: flex;
+  align-items: flex-end;
+  justify-content: right;
+  text-align: right;
+}
+
+/* ==== GRID SYSTEM ==== */
+
+.container {
+  width: 100%;
+  height: 100%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.row {
+  /* position: relative;
+    width: 100%; */
+  display: -ms-flexbox;
+  display: -webkit-box;
+  display: flex;
+  -ms-flex-direction: row;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  flex-direction: row;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+
+.row [class^="col"] {
+  float: left;
+  /* margin: 0.5rem 2%;
+  min-height: 0.125rem; */
+}
+
+.col-1,
+.col-2,
+.col-3,
+.col-4,
+.col-5,
+.col-6,
+.col-7,
+.col-8,
+.col-9,
+.col-10,
+.col-11,
+.col-12 {
+  width: 100%;
+}
+
+.col-0-sm {
+  width: 4.33%;
+}
+
+.col-1-sm {
+  width: 8.333333%;
+}
+
+.col-2-sm {
+  width: 16.666667%;
+}
+
+.col-3-sm {
+  width: 25%;
+}
+
+.col-4-sm {
+  width: 33%;
+}
+
+.col-5-sm {
+  width: 41.666667%;
+}
+
+.col-6-sm {
+  width: 50%;
+}
+
+.col-7-sm {
+  width: 58.333333%;
+}
+
+.col-8-sm {
+  width: 66.666667%;
+}
+
+.col-9-sm {
+  width: 75%;
+}
+
+.col-10-sm {
+  width: 83.333333%;
+}
+
+.col-11-sm {
+  width: 91.666667%;
+}
+
+.col-12-sm {
+  width: 100%;
+}
+
+.row::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.align-items-stretch {
+  align-items: stretch;
+}
+
+.hidden-sm {
+  display: none;
+}
+
+@media only screen and (min-width: 33.75em) {
+  /* 540px */
+  .container {
+    width: 100%;
+  }
+}
+
+@media only screen and (min-width: 45em) {
+  .col-0 {
+    width: 4.33%;
+  }
+
+  /* 720px */
+  .col-1 {
+    width: 8.333333%;
+  }
+
+  .col-2 {
+    width: 16.666667%;
+  }
+
+  .col-3 {
+    width: 25%;
+  }
+
+  .col-4 {
+    width: 33%;
+  }
+
+  .col-5 {
+    width: 41.666667%;
+  }
+
+  .col-6 {
+    width: 50%;
+  }
+
+  .col-7 {
+    width: 58.333333%;
+  }
+
+  .col-8 {
+    width: 66.666667%;
+  }
+
+  .col-9 {
+    width: 75%;
+  }
+
+  .col-10 {
+    width: 83.333333%;
+  }
+
+  .col-11 {
+    width: 91.666667%;
+  }
+
+  .col-12 {
+    width: 100%;
+  }
+
+  .hidden-sm {
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  /* 960px */
+  .container {
+    width: 100%;
+    /* max-width: 60rem; */
+  }
+
+  .w-sm-100 {
+    width: 100%;
+  }
+}
+
+small {
+  font-size: small;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.w-75 {
+  width: 75%;
+}
+
+.w-50 {
+  width: 50%;
+}
+
+.w-25 {
+  width: 25%;
+}
+
+.centered {
+  text-align: center !important;
+}
+
+.w100 {
+  width: 100%;
+}

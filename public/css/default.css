@@ -1,0 +1,610 @@
+/* @media (min-width: 640px) {}
+@media (min-width: 768px) {}
+@media (min-width: 1024px) {}
+@media (min-width: 1280px) {}
+*/
+
+:root {
+  --text-main: #3e4756;
+  --text: #ffffff;
+  --text-light: #a2acbd;
+  --text-hover: #00b9fc;
+  --bg: #000;
+
+  /* Main Colors */
+  --main: #1a98f5;
+  --main-dark: #0d4c7a;
+  --main-darker: #072d49;
+  --main-orange: #f5771a;
+
+  /* Grey Colors */
+  --black: #000;
+  --grey-black: #1f2d3d;
+  --grey-steel: #273444;
+  --grey-slate: #3c4858;
+  --grey-silver: #8492a6;
+
+  /* UI Colors */
+  --ui-blue: #1fb6ff;
+  --ui-green: #13ce66;
+  --ui-red: #ff4949;
+  --ui-yellow: #ffcb2c;
+
+  /* Nav */
+  --nav-bg: #020b18;
+  --nav-bg-active: #07162c;
+  --nav-text: #3e6888;
+  --nav-active: #b9b9ba;
+
+  /* Card */
+  --card-bg: rgba(0, 0, 0, 0.9);
+  /* Input */
+  --input-border-highlight: #1a98f5;
+  --input-border: #072d49;
+  --input-bg:#3c4858;
+  --input-button-bg:#072d493b;
+}
+
+* {
+  font-size: 100%;
+  font-family: Arial;
+}
+
+html {
+  background-color: var(--bg);
+  height: 100%;
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px; /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: "liga";
+}
+
+/* ---------- Header ---------- */
+.header {
+  min-height: 44px;
+  min-width: 44px;
+  height: 4em;
+  display: flex;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 0;
+  background-color: var(--nav-bg);
+  z-index: 99;
+
+  color: var(--text-main);
+}
+
+.top-nav {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  color: var(--nav-text);
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* padding: 0.7rem; */
+  height: 100%;
+}
+
+.top-banner {
+  flex: 3;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 44px;
+  border: 1px solid var(--grey-slate);
+  margin: 0.5em 0;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.top-logo {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  align-items: center;
+  min-height: 44px;
+  margin-top: 1em;
+  height: 5vh;
+}
+
+.top-notifications {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+  min-height: 44px;
+}
+
+.top-noti-logo {
+  padding: 0.8rem;
+}
+
+.top-user {
+  min-height: 44px;
+  min-width: 44px;
+  display: flex;
+  flex: 2;
+  right: 0;
+  justify-content: center;
+  color: var(--nav-text);
+  align-content: flex-end;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.top-user-btn {
+  width: 100%;
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.top-user-btn:hover {
+  background-color: var(--main-darker);
+  color: var(--text-hover);
+}
+
+/* ---------- Top Nav ---------- */
+
+.top-nav-button {
+  width: 100%;
+  text-align: center;
+  cursor: pointer;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+.top-nav-button:hover {
+  background-color: var(--main-darker);
+  color: var(--text-light);
+}
+
+/* The Overlay (background) */
+.overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  left: 0;
+  top: 0;
+  background-color: var(--black); /* Black fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+/* Position the content inside the overlay */
+.overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: var(--text);
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.overlay a:hover,
+.overlay a:focus {
+  color: var(--text);
+}
+
+/* Position the close button (top right corner) */
+.overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .overlay a {
+    font-size: 20px;
+  }
+  .overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+.top-img {
+  max-width: 100%;
+  max-height: 200%;
+  height: auto;
+}
+
+.user-overlay {
+  /* Height & width depends on how you want to reveal the overlay (see JS below) */
+  height: 100%;
+  width: 0;
+  position: fixed; /* Stay in place */
+  z-index: 3; /* Sit on top */
+  right: 0;
+  top: 0;
+  background-color: var(-); /* Black fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/opacity */
+  overflow-x: hidden; /* Disable horizontal scroll */
+  transition: 0.5s; /* 0.5 second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
+}
+
+/* Position the content inside the overlay */
+.user-overlay-content {
+  position: relative;
+  top: 25%; /* 25% from the top */
+  width: 100%; /* 100% width */
+  text-align: center; /* Centered text/links */
+  margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
+}
+
+/* The navigation links inside the overlay */
+.user-overlay a {
+  padding: 8px;
+  text-decoration: none;
+  font-size: 36px;
+  color: var(--grey-silver);
+  display: block; /* Display block instead of inline */
+  transition: 0.3s; /* Transition effects on hover (color) */
+}
+
+/* When you mouse over the navigation links, change their color */
+.user-overlay a:hover,
+.user-overlay a:focus {
+  color: var(--text);
+}
+
+/* Position the close button (top right corner) */
+.user-overlay .closebtn {
+  position: absolute;
+  top: 20px;
+  right: 45px;
+  font-size: 60px;
+}
+
+/* ---------- Bottom Nav ----------*/
+.btm-nav {
+  display: flex;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 0;
+  background-color: var(--nav-bg);
+  z-index: 2;
+}
+
+.btm-nav__item {
+  min-height: 44px;
+  min-width: 44px;
+
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  justify-content: center;
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--nav-text);
+  background-color: transparent;
+  cursor: pointer;
+  padding: 0.8rem 0;
+}
+.btm-nav__item_active {
+  color: var(--nav-active);
+  background-color: var(--nav-bg-active);
+}
+
+.btm-nav__item:hover {
+  color: var(--text-hover);
+  background-color: var(--nav-bg-active);
+}
+.btm-nav__item:active {
+  color: var(--text-hover);
+  background-color: var(--nav-bg-active);
+}
+
+.btm-nav__item:disabled {
+  color: var(--grey-slate);
+}
+
+/* When the height of the screen is less than 450 pixels, change the font-size of the links and position the close button again, so they don't overlap */
+@media screen and (max-height: 450px) {
+  .user-overlay a {
+    font-size: 20px;
+  }
+  .user-overlay .closebtn {
+    font-size: 40px;
+    top: 15px;
+    right: 35px;
+  }
+}
+
+@media (max-width: 1023px) {
+  .top-user,
+  .top-nav {
+    flex: 1;
+  }
+
+  .top-logo {
+    flex: 3;
+  }
+
+  .top-notifications,
+  .top-banner {
+    display: none;
+  }
+}
+
+/* ----------------------- CONTENT -------------------------- */
+
+.body {
+  margin-top: 8em;
+  padding-bottom: 4em;
+  color: var(--text);
+  padding-bottom: 4em;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+  height: 2em;
+  display: flex;
+  align-items: center;
+  padding-left: 2em;
+  color: var(--text-light);
+  padding: 1em;
+}
+
+.breadcrumb-home-icon {
+  padding-right: 0.3em;
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.breadcrumb-item {
+  color: var(--text-light);
+  text-decoration: none;
+}
+
+.breadcrumb-item:hover {
+  color: var(--text-hover);
+}
+.breadcrumb-item:active {
+  color: var(--text-hover);
+}
+
+.breadcrumb-seperator {
+  padding-left: 0.2em;
+  padding-right: 0.2em;
+}
+
+.content,
+.footer {
+  padding: 1em;
+}
+
+.navFilter {
+  margin: 1em;
+  border: 1px solid var(--text-main);
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  height: 3em;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  background-color: var(--nav-bg-active);
+}
+
+.navFilter-item {
+  height: 100%;
+  width: 20%;
+  border-right: 1px solid var(--text-main);
+}
+
+.navFilter-item > a {
+  color: var(--text-light);
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+.navFilter-item > a:hover {
+  color: var(--text-hover);
+}
+
+.card {
+  border: 1px solid var(--text-main);
+  background-color: var(--card-bg);
+  border-radius: 5px;
+  margin: 1em;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  padding: 1em;
+}
+
+.card-h-25{
+  height:25em;
+}
+
+.card-img {
+  width: 100%;
+}
+
+.card-img > img {
+  width: 100%;
+  max-height: 20em;
+  border-radius: 5px 5px 0 0;
+  -webkit-border-radius: 5px 5px 0 0;
+  -moz-border-radius: 5px 5px 0 0;
+  -ms-border-radius: 5px 5px 0 0;
+  -o-border-radius: 5px 5px 0 0;
+}
+.card-header {
+  font-size: 1.1em;
+}
+.card-body {
+  font-size: 0.9em;
+}
+.card-footer {
+  font-size: 0.9em;
+  margin-top:3em;
+}
+
+.card-header-text {
+  padding-top: 2em;
+  padding-bottom: 2em;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.input-group label {
+  width: 30%;
+  color: var(--text);
+  font-weight: lighter;
+  font-size: 1.4em;
+  margin-bottom: 7px;
+}
+
+.input-group input {
+  width: 70%;
+  font-size: 1.2em;
+  padding: 0.1em 0.25em;
+  background-color: var(--input-bg);
+  border: 1px solid var(--input-border);
+  outline: none;
+  border-radius: 5px;
+  color: #fff;
+  font-weight: lighter;
+}
+
+.input-group input:focus {
+  border: 1px solid var(--input-border-highlight);
+}
+
+.input-centered{
+  text-align: center;
+}
+
+.footer {
+  display: flex;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+}
+
+.footer-cutter {
+  margin: 2em;
+}
+.copyright {
+  margin-top: 1em;
+}
+
+.footer > * a {
+  color: white;
+  text-decoration: none;
+}
+
+/* ----------- LOGIN --------- */
+
+.card-login {
+  width: 50%;
+}
+
+.login-button {
+  padding: .5em 3em;
+  width: 100%;
+  border-radius: 5px;
+  background: var(--input-button-bg);
+  border: 1px solid var(--input-border);
+  font-size: 1.5em;
+  margin-top: 1em;
+  cursor: pointer;
+  color:var(--text);
+}
+
+.register-button{
+  padding: .5em 2em;
+  margin-right:2em;
+  border-radius: 5px;
+  background: var(--input-button-bg);
+  border: 1px solid var(--input-border);
+  font-size: 1.5em;
+  margin-top: 1em;
+  cursor: pointer;
+  color:var(--text);
+  text-decoration: none;
+}
+.forgot-password-button{
+  /* padding: 0.5em 1em; */
+  border-radius: 5px;
+  background: var(--input-button-bg);
+  border: 1px solid var(--input-border);
+  font-size: 1.5em;
+  margin-top: 1em;
+  cursor: pointer;
+  color:var(--text-main);
+  text-decoration: none;
+  white-space: nowrap;
+}
