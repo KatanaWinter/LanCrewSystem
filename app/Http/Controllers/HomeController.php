@@ -30,9 +30,9 @@ class HomeController extends Controller
     public function index()
     {
         if (Auth::user()->hasRole('admin')) {
-            return view('admin.dashbord');
+            return view('admin.dashboard');
         } else {
-            return view('users.dashbord');
+            return view('users.dashboard');
         }
     }
 }

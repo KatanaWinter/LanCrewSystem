@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
-use App\Models\User;
 use App\Models\Role;
+use App\Models\User;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
     public function index()
     {
-      $users = User::whereHas('roles', function($query){
-                $query->where('name', 'user');
-              })->get();
+        $users = User::whereHas('roles', function ($query) {
+            $query->where('name', 'user');
+        })->get();
 
-      return view('admin.users.index', compact('users'));
+        return view('admin.users.index', compact('users'));
     }
 
     public function create()
@@ -27,10 +27,10 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $user = User::create([
-                  'name'      =>  $request->name,
-                  'email'     =>  $request->email,
-                  'password'  =>  Hash::make($request->password),
-                ]);
+            'name' => $request->name,
+            'email' => $request->email,
+            'password' => Hash::make($request->password),
+        ]);
 
         $user->assignRole($request->input('roles'));
 
@@ -41,7 +41,7 @@ class UserController extends Controller
     {
         $user = User::find($id);
 
-        return view('admin.users.show',compact('user'));
+        return view('admin.users.show', compact('user'));
     }
 
     public function edit($id)
@@ -66,7 +66,7 @@ class UserController extends Controller
     {
         User::find($id)->delete();
         return redirect()->route('users.index')
-                        ->with('success','User deleted successfully');
+            ->with('success', 'User deleted successfully');
 
     }
 }

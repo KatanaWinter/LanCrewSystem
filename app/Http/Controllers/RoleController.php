@@ -19,7 +19,7 @@ class RoleController extends Controller
     {
         $roles = Role::orderBy('id','DESC')->paginate(5);
 
-        return view('roles.index',compact('roles'));
+        return view('admin.roles.index',compact('roles'));
     }
 
     /**
@@ -31,7 +31,7 @@ class RoleController extends Controller
     {
         $permissions = Permission::all();
 
-        return view('roles.create',compact('permissions'));
+        return view('admin.roles.create',compact('permissions'));
     }
 
     /**
@@ -50,7 +50,7 @@ class RoleController extends Controller
         $role = Role::create(['name' => $request->input('name')]);
         $role->syncPermissions($request->permissions);
 
-        return redirect()->route('roles.index')
+        return redirect()->route('admin.roles.index')
                         ->with('success','Role created successfully');
     }
 
@@ -67,7 +67,7 @@ class RoleController extends Controller
             ->where("role_has_permissions.role_id",$id)
             ->get();
 
-        return view('roles.show',compact('role', 'rolePermissions'));
+        return view('admin.roles.show',compact('role', 'rolePermissions'));
     }
 
     /**
@@ -85,7 +85,7 @@ class RoleController extends Controller
                             ->pluck('role_has_permissions.permission_id','role_has_permissions.permission_id')
                             ->all();
 
-        return view('roles.edit',compact('role','permissions', 'rolePermissions'));
+        return view('admin.roles.edit',compact('role','permissions', 'rolePermissions'));
     }
 
     /**
@@ -108,7 +108,7 @@ class RoleController extends Controller
 
         $role->syncPermissions($request->input('permissions'));
 
-        return redirect()->route('roles.index')
+        return redirect()->route('admin.roles.index')
                         ->with('success','Role updated successfully');
     }
 
@@ -122,7 +122,7 @@ class RoleController extends Controller
     {
         Role::find($id)->delete();
 
-        return redirect()->route('roles.index')
+        return redirect()->route('admin.roles.index')
                         ->with('success','Role deleted successfully');
     }
 }
