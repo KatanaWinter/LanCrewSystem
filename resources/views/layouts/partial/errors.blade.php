@@ -31,17 +31,26 @@
 <div class="centered alert alert-info alert-block">
 
     <form class="login-form" method="POST" action="{{ route('register.resendVerifyMail') }}">
-        {{-- <form class="login-form" method="POST" action="{{ route('verification.resend') }}"> --}}
-            @csrf
-            <div class="w100">
-                <input name="hiddenEmail" type="hidden" value="{{ old('email') }}">
-                <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
-                <strong class="">{!! $message !!}</strong>
-            </div>
-            <button class="blue-button" type="submit">Resend Mail</button>
-        </form>
+    {{-- <form class="login-form" method="POST" action="{{ route('verification.resend') }}"> --}}
+        @csrf
+        <div class="w100">
+            <input name="hiddenEmail" type="hidden" value="{{ old('email') }}">
+            <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
+            <strong class="">{!! $message !!}</strong>
+        </div>
+        <button class="blue-button" type="submit">Resend Mail</button>
+    </form>
 </div>
 @endif
+
+{{-- @if ($errors->any())
+<div class="centered alert alert-danger">
+    Check the following errors :(
+    <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
+</div>
+@endif --}}
+
+
 
 
 @if (count($errors) > 0)

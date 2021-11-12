@@ -28,7 +28,7 @@
     </section>
 
     <section class="body">
-
+        @include('layouts.partial.errors')
         <section class="content">
             @yield('content')
         </section>
