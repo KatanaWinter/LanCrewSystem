@@ -27,7 +27,7 @@
         <a href="javascript:void(0)" class="closebtn" onclick="closeUserNav()">&times;</a>
         <!-- Overlay content -->
         <div class="overlay-content">
-            <a href="#">Login</a>
+            <a href="{{ route('login') }}">Login</a>
         </div>
     </div>
 </div>
