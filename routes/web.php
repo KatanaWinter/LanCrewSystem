@@ -41,7 +41,6 @@ Route::post('/email/verification-notification', function (Request $request) {
     return back()->with('message', 'Verification link sent!');
 })->middleware(['auth', 'throttle:6,1'])->name('verification.send');
 
-
 Route::group(['middleware' => ['auth', 'signed']], function () {
     Route::resource('roles', RoleController::class);
     Route::resource('users', UserController::class);
