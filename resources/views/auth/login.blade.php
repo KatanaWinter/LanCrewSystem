@@ -25,9 +25,7 @@
                         <button type="submit" class="login-button">Sign In</button>
                     </form>
                 </div>
-            </div>
-            <div class="trumbowyg-dark">
-                <textarea id="texteditor"></textarea>
+
             </div>
         </div>
         <div class="card-footer">
@@ -115,5 +113,3 @@
     </div>
 </div> --}}
 @endsection
-
-@include('partials.editor')
