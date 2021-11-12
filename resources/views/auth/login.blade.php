@@ -14,12 +14,12 @@
                     <form>
                         <div class="input-group">
                             <label>Email</label>
-                            <input class="input-centered" type="email" />
+                            <input class="input-centered" type="email" name="email"/>
                         </div>
 
                         <div class="input-group">
                             <label>Password</label>
-                            <input class="input-centered" type="password" />
+                            <input class="input-centered" type="password" name="password" />
                         </div>
 
                         <button type="submit" class="login-button">Sign In</button>
