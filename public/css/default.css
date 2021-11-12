@@ -167,6 +167,15 @@ html {
   align-items: flex-end;
 }
 
+.nav-btn {
+    width: 100%;
+    cursor: pointer;
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+  }
 .top-user-btn {
   width: 100%;
   cursor: pointer;
